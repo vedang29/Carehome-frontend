@@ -14,11 +14,11 @@ const Navbar = () => {
             <span>Logo</span>
         </div>
         <ul className='flex gap-8'>
-            <li className='flex gap-2 items-center'><TbHome size={28} />Home</li>
-            <li className='flex gap-2 items-center'><LuHeartHandshake size={28} />Services</li>
-            <li className='flex gap-2 items-center'><CgInfo size={28}/>About Us</li>
-            <li className='flex gap-2 items-center'><MdAttachMoney size={28} />Pricing & Plans</li>
-            <li className='flex gap-2 items-center'><PiSignInBold size={28}/>Sign In</li>
+            <li className='flex gap-2 items-center hover-up-scale'><TbHome size={28} />Home</li>
+            <li className='flex gap-2 items-center hover-up-scale'><LuHeartHandshake size={28} />Services</li>
+            <li className='flex gap-2 items-center hover-up-scale'><CgInfo size={28}/>About Us</li>
+            <li className='flex gap-2 items-center hover-up-scale'><MdAttachMoney size={28} />Pricing & Plans</li>
+            <li className='flex gap-2 items-center hover-up-scale'><PiSignInBold size={28}/>Sign In</li>
         </ul>
     </div>
   )

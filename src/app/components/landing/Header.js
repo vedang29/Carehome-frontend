@@ -11,11 +11,11 @@ const Header = () => {
         </div>
 
         <div className="flex gap-5">
-            <div className='flex flex-col justify-center items-center gap-2 border-card p-2 rounded-2xl w-30 h-30 text-md text-center'><MdOutlineHomeWork size={34}/>Care Homes</div>
-            <div className='flex flex-col justify-center items-center gap-2 border-card p-2 rounded-2xl w-30 h-30 text-md text-center'><MdOutlineHomeWork size={34}/>Retirement Homes</div>
-            <div className='flex flex-col justify-center items-center gap-2 border-card p-2 rounded-2xl w-30 h-30 text-md text-center'><MdOutlineHomeWork size={34}/>Dementia Care Homes</div>
-            <div className='flex flex-col justify-center items-center gap-2 border-card p-2 rounded-2xl w-30 h-30 text-md text-center'><MdOutlineHomeWork size={34}/>Residential Care Homes</div>
-            <div className='flex flex-col justify-center items-center gap-2 border-card p-2 rounded-2xl w-30 h-30 text-md text-center'><MdOutlineHomeWork size={34}/>Respite Care Homes</div>
+            <div className='flex flex-col justify-center items-center gap-2 border-card p-2 rounded-2xl w-30 h-30 text-md text-center hover-card'><MdOutlineHomeWork size={34}/>Care Homes</div>
+            <div className='flex flex-col justify-center items-center gap-2 border-card p-2 rounded-2xl w-30 h-30 text-md text-center hover-card'><MdOutlineHomeWork size={34}/>Retirement Homes</div>
+            <div className='flex flex-col justify-center items-center gap-2 border-card p-2 rounded-2xl w-30 h-30 text-md text-center hover-card'><MdOutlineHomeWork size={34}/>Dementia Care Homes</div>
+            <div className='flex flex-col justify-center items-center gap-2 border-card p-2 rounded-2xl w-30 h-30 text-md text-center hover-card'><MdOutlineHomeWork size={34}/>Residential Care Homes</div>
+            <div className='flex flex-col justify-center items-center gap-2 border-card p-2 rounded-2xl w-30 h-30 text-md text-center hover-card'><MdOutlineHomeWork size={34}/>Respite Care Homes</div>
         </div>
 
         <div className="flex justify-center items-center gap-5 w-3/4 border-card px-10">
