@@ -8,7 +8,7 @@ const SearchBar = () => {
   const [mapView, setMapView] = useState(false);
 
   return (
-    <div className="flex items-center justify-between gap-2 w-full bg-white  rounded-lg  w-full my-5">
+    <div className="flex items-center justify-between gap-2 w-full bg-white  rounded-lg  my-5">
       {/* Location Input */}
       <div className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg w-136">
         <FaSearch className="text-black" size={28} />
