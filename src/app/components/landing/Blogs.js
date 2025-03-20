@@ -28,7 +28,7 @@ const Blogs = () => {
       <p className="text-gray-600 mt-2 max-w-xl mx-auto">
         Stay informed with expert tips, trends, and heartwarming stories to help you make the best decisions for your loved ones.
       </p>
-      <div className="mt-8 flex flex-wrap justify-center gap-6 mt-20">
+      <div className="flex flex-wrap justify-center gap-6 mt-20">
         {blogs.map((blog) => (
           <div key={blog.id} className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white">
             <Image src={blog.image} alt={blog.title} width={400} height={250} className="w-full h-60 object-cover" />
