@@ -1,8 +1,8 @@
-import Navbar from "../components/Navbar";
-import SearchBar from "../components/SearchBar";
-import Footer from "../components/landing/Footer";
-import ListingCard from "../components/listing/ListingCard";
-import SideBar from "../components/listing/SideBar";
+import Navbar from "../../components/custom/Navbar";
+import SearchBar from "../../components/custom/SearchBar";
+import Footer from "../../components/custom/landing/Footer";
+import ListingCard from "../../components/custom/listing/ListingCard";
+import SideBar from "../../components/custom/listing/SideBar";
 
 export default function Home() {
   return (

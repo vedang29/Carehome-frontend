@@ -1,15 +1,19 @@
 import Image from "next/image";
-import Navbar from "./components/Navbar";
-import Header from "./components/landing/Header";
-import Clients from "./components/landing/Clients";
-import About from "./components/landing/About";
-import Footer from "./components/landing/Footer";
-import Stats from "./components/landing/Stats";
-import Blogs from "./components/landing/Blogs";
+import Navbar from "../components/custom/Navbar";
+import Header from "../components/custom/landing/Header";
+import Clients from "../components/custom/landing/Clients";
+import About from "../components/custom/landing/About";
+import Footer from "../components/custom/landing/Footer";
+import Stats from "../components/custom/landing/Stats";
+import Blogs from "../components/custom/landing/Blogs";
+
+import { Button } from "@/components/ui/button"
+
 
 export default function Home() {
   return (
     <div>
+     {/* <Button variant="ghost">Click Me</Button> */}
         <Navbar/>
         <Header/>
         <Clients/>
@@ -17,6 +21,7 @@ export default function Home() {
         <Stats/>
         <Blogs/>
         <Footer/>
+
     </div>
   );
 }

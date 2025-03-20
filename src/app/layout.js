@@ -1,14 +1,15 @@
 
 import "./globals.css";
 
-import { Raleway } from "next/font/google";
+import { Poppins } from "next/font/google";
 
-const raleway = Raleway({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], // Include all weights
-  variable: "--font-raleway", // Store in CSS variable
-  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"], // All weights
+  variable: "--font-poppins", // Define CSS variable
 });
+
+
 
 export const metadata = {
   title: "Create Next App",
@@ -17,7 +18,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={raleway.variable}>
+    <html lang="en" className={poppins.variable}>
       <body>
         {children}
       </body>
