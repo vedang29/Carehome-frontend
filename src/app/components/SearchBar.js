@@ -8,9 +8,9 @@ const SearchBar = () => {
   const [mapView, setMapView] = useState(false);
 
   return (
-    <div className="flex items-center justify-between gap-2 w-full bg-white  rounded-lg  my-5">
+    <div className="flex items-center justify-between gap-2 w-full rounded-lg  my-5">
       {/* Location Input */}
-      <div className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg w-136">
+      <div className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg w-136 border-card">
         <FaSearch className="text-black" size={28} />
         <input
           type="text"
@@ -24,7 +24,7 @@ const SearchBar = () => {
       </div>
 
        {/* Date Picker */}
-       <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-2">
+       <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-2 border-card">
         <input
           type="date"
           className="bg-transparent outline-none text-gray-700 cursor-pointer p-2 text-sm"
@@ -37,13 +37,13 @@ const SearchBar = () => {
       </div>
 
       {/* Room & Guest Selector */}
-      <div className="flex items-center gap-2 bg-gray-100 p-4 rounded-lg text-sm">
+      <div className="flex items-center gap-2 bg-gray-100 p-4 rounded-lg text-sm border-card">
         <span>1 Room, 1 Guest</span>
         <FaSlidersH className="text-black" size={14} />
       </div>
 
       {/* Map View Toggle */}
-      <div className="flex items-center gap-2 bg-gray-100 p-4 rounded-lg text-sm">
+      <div className="flex items-center gap-2 bg-gray-100 p-4 rounded-lg text-sm border-card">
         <span>Map View</span>
         <button
           onClick={() => setMapView(!mapView)}
@@ -60,7 +60,7 @@ const SearchBar = () => {
       </div>
 
       {/* Search Button */}
-      <button className="bg-black text-white px-6 py-3 rounded-lg font-semibold">
+      <button className="bg-black text-white px-6 py-3 rounded-lg font-semibold border-card">
         Search
       </button>
     </div>
