@@ -8,7 +8,7 @@ import { IoLogoBuffer } from "react-icons/io5";
 
 const Navbar = () => {
   return (
-    <div className='flex justify-between items-center p-5'>
+    <div className='flex justify-between items-center p-5 max-w-7xl mx-auto'>
         <div className='flex justify-center items-center gap-2'>
             <IoLogoBuffer size={28}/>
             <span>Logo</span>
