@@ -7,13 +7,12 @@ import Footer from "../components/custom/landing/Footer";
 import Stats from "../components/custom/landing/Stats";
 import Blogs from "../components/custom/landing/Blogs";
 
-import { Button } from "@/components/ui/button"
 
 
 export default function Home() {
   return (
     <div>
-     {/* <Button variant="ghost">Click Me</Button> */}
+   
         <Navbar/>
         <Header/>
         <Clients/>

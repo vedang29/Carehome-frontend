@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 import { IoLogoBuffer } from "react-icons/io5";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button"
+import { LogIn } from "lucide-react";
+
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -32,12 +35,17 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <ul className="flex gap-8">
-          <li className="cursor-pointer hover:text-gray-600">Home</li>
-          <li className="cursor-pointer hover:text-gray-600">Services</li>
-          <li className="cursor-pointer hover:text-gray-600">About Us</li>
-          <li className="cursor-pointer hover:text-gray-600">Pricing & Plans</li>
-          <li className="cursor-pointer hover:text-gray-600">Sign In</li>
+          <li><Button variant="link">Home</Button></li>
+          <li><Button variant="link">Services</Button></li>
+          <li><Button variant="link">About Us</Button></li>
+          <li><Button variant="link">Pricing & Plans</Button></li>
+          <li>
+            <Button>
+              <LogIn /> Sign in
+            </Button>
+          </li>
         </ul>
+
       </div>
     </motion.div>
   );

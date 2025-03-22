@@ -1,6 +1,15 @@
 import { MdOutlineHomeWork } from "react-icons/md";
 import { GoSearch } from "react-icons/go";
 import { IoFilter } from "react-icons/io5";
+import { Building } from "lucide-react"
+import { Building2 } from "lucide-react"
+import { House } from "lucide-react"
+import { Search } from "lucide-react"
+import { ListFilter } from "lucide-react"
+import { Input } from "@/components/ui/input"
+
+
+import { Button } from "@/components/ui/button"
 
 const Header = () => {
     return (
@@ -15,37 +24,44 @@ const Header = () => {
                 {/* Content */}
                 <div className="relative z-10 text-center text-white">
                     <h1 className="text-5xl font-bold leading-tight">
-                        Compare care homes, home care
+                        Explore, Compare & Choose
                     </h1>
                     <h1 className="text-5xl font-bold leading-tight">
-                        services and retirement properties
+                        the Best Care Home.
                     </h1>
                 </div>
 
-                {/* Category Icons */}
-                <div className="relative z-10 flex gap-6 mt-10">
-                    {["Care Homes", "Retirement Homes", "Residential Care Homes"].map(
-                        (category, index) => (
-                            <div
-                                key={index}
-                                className="flex flex-col justify-center items-center gap-2 hover-up-scale p-4 rounded-xl w-32 h-32 text-md text-center bg-white/80"
-                            >
-                                <MdOutlineHomeWork size={40} />
-                                <span>{category}</span>
-                            </div>
-                        )
-                    )}
+                {/*Category Icons */}
+                <div className="z-10 flex gap-4 mt-10">
+                    <Button variant="outline" className="h-auto w-28 flex flex-col items-center text-center hover-card">
+                        <House className="!w-7 !h-7 mb-2" />
+                        Residential <br /> Care Homes
+                    </Button>
+                    <Button variant="outline" className="h-auto w-28 flex flex-col items-center text-center hover-card">
+                        <Building2 className="!w-7 !h-7 mb-2" />
+                        Retirement <br /> Communities
+                    </Button> <Button variant="outline" className="h-auto w-28 flex flex-col items-center text-center hover-card">
+                        <Building className="!w-7 !h-7 mb-2" />
+                        Specialized <br /> Care Homes
+                    </Button>
                 </div>
 
-                {/* Search Bar */}
-                <div className="relative z-10 flex justify-between items-center gap-5 w-3/4 px-6 py-2 rounded-full bg-white shadow-lg mt-10">
-                    <GoSearch size={24} className="text-gray-500" />
-                    <input
-                        type="text"
-                        placeholder="Search by Town, Pincode or Home"
-                        className="flex-1 py-2 focus:outline-none text-lg"
-                    />
-                    <IoFilter size={24} className="text-gray-500 cursor-pointer" />
+                {/*Search Bar */}
+                <div className="z-10 w-3/4 shadow-lg flex items-center bg-white rounded-full mt-10">
+                    <div className="relative w-full">
+                        {/* Search Icon (Left) */}
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
+
+                        {/* ShadCN Input */}
+                        <Input
+                            type="text"
+                            placeholder="Search by Town, Pincode, or Home"
+                            className="w-full pl-10 pr-10 py-6 rounded-full"
+                        />
+
+                        {/* Filter Icon (Right) */}
+                        <ListFilter className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5 cursor-pointer" />
+                    </div>
                 </div>
             </div>
 
