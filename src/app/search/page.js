@@ -10,7 +10,7 @@ export default function Home() {
       <div className="max-w-7xl min-h-screen mx-auto">
         <Navbar />
         <div>
-        <div className="text-3xl font-semibold">Hello!</div>
+        <div className="text-3xl font-semibold mt-10">Hello Vedang!</div>
         <SearchBar/>
       </div>
         <div className="py-8 space-y-6 flex flex-row space-x-5 justify-center align-middle">
