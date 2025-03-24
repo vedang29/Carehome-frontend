@@ -33,14 +33,14 @@ const Header = () => {
 
                 {/*Category Icons */}
                 <div className="z-10 flex gap-4 mt-10">
-                    <Button variant="outline" className="h-auto w-28 flex flex-col items-center text-center hover-card">
+                    <Button variant="outline" className="h-auto w-28 flex flex-col bg-black/15 text-white items-center text-center hover-card">
                         <House className="!w-7 !h-7 mb-2" />
                         Residential <br /> Care Homes
                     </Button>
-                    <Button variant="outline" className="h-auto w-28 flex flex-col items-center text-center hover-card">
+                    <Button variant="outline" className="h-auto w-28 flex flex-col bg-black/15 text-white items-center text-center hover-card">
                         <Building2 className="!w-7 !h-7 mb-2" />
                         Retirement <br /> Communities
-                    </Button> <Button variant="outline" className="h-auto w-28 flex flex-col items-center text-center hover-card">
+                    </Button> <Button variant="outline" className="h-auto w-28 flex flex-col bg-black/15 text-white items-center text-center hover-card">
                         <Building className="!w-7 !h-7 mb-2" />
                         Specialized <br /> Care Homes
                     </Button>

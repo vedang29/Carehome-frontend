@@ -11,8 +11,6 @@ const About = () => {
       </div>
       <div className="flex justify-around">
         <AboutCard />
-        <AboutCard />
-        <AboutCard />
       </div>
 
       
