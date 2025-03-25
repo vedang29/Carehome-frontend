@@ -24,7 +24,7 @@ const Navbar = () => {
       initial={{ y: 0, opacity: 1 }}
       animate={{ y: isSticky ? 0 : 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className={`w-full bg-white shadow-md z-50 transition-all ${isSticky ? "fixed top-0 left-0" : "relative"}`}
+      className={`w-full bg-white border-b-1 z-50 transition-all ${isSticky ? "fixed top-0 left-0 shadow-md" : "relative"}`}
     >
       <div className="flex justify-between items-center max-w-7xl mx-auto px-5 py-4">
         {/* Logo Section */}

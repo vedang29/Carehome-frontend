@@ -15,12 +15,7 @@ export default function Home() {
       </div>
         <div className="py-8 space-y-6 flex flex-row space-x-5 justify-center align-middle">
 
-          <div className="space-y-10 mb-0">
-            <ListingCard />
-            <ListingCard />
-            <ListingCard />
-            <ListingCard />
-            <ListingCard />
+          <div className="">
             <ListingCard />
             <ListingCard />
             <ListingCard />

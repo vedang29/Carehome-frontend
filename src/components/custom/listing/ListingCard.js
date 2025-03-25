@@ -1,77 +1,90 @@
-import { FaBookmark, FaStar } from "react-icons/fa6";
-import { FaRupeeSign } from "react-icons/fa";
-import { RxCardStackMinus } from "react-icons/rx";
-import { LuCctv } from "react-icons/lu";
-import { PiForkKnifeBold } from "react-icons/pi";
-import { FaStethoscope } from "react-icons/fa6";
+import Image from "next/image";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Star, Bookmark, Tv, Utensils, Stethoscope } from "lucide-react";
 
-const ListingCard = () => {
+export default function ListingCard() {
   return (
-    <div className="flex items-center bg-white rounded-3xl shadow-lg overflow-hidden max-w-4xl border border-gray-200">
+    <Card className="rounded-2xl shadow-md flex flex-row w-full relative bg-white p-0 my-5">
+      {/* Bookmark Icon */}
+      <button className="absolute top-4 right-4 p-2 rounded-full">
+        <Bookmark className="text-black w-5 h-5" />
+      </button>
 
-      {/* left - main image */}
-      <div className="relative w-1/3">
-        <img
-          src="/assets/Room2.png"
-          alt="Serenity Elder Care"
-          className="w-full h-64 object-cover"
-        />
-      </div>
+      {/* Left Section (Images) */}
+      <div className="flex w-3/6 relative">
+        {/* Main Large Image */}
+        <div className="relative">
+          <Image
+            src="/assets/Room2.png"
+            alt="Serenity Elder Care"
+            width={300}
+            height={200}
+            className="w-full h-full object-cover rounded-l-2xl"
+          />
+        </div>
 
-      {/* middle -grid images */}
-      <div className="w-1/8 bg-gray-100">
-        <div className="grid grid-rows-5 h-64">
-          <img src="/assets/Room1.png" alt="img1" className="w-full h-12 object-cover" />
-          <img src="/assets/Room2.png" alt="img2" className="w-full h-12 object-cover" />
-          <img src="/assets/Room3.png" alt="img3" className="w-full h-12 object-cover" />
-          <img src="/assets/Room4.png" alt="img4" className="w-full h-12 object-cover" />
-          <img src="/assets/Room1.png" alt="img5" className="w-full h-12 object-cover" />
+        {/* Side Thumbnail Images */}
+        <div className="w-1/3 flex flex-col gap-0 border-l-2 border-white">
+          {["/assets/Room1.png", "/assets/Room2.png", "/assets/Room3.png", "/assets/Room4.png", "/assets/Room1.png"].map((src, index) => (
+            <Image
+              key={index}
+              src={src}
+              alt={`img${index + 1}`}
+              width={60}
+              height={50}
+              className="w-full h-12 object-cover border-b-2 border-white"
+            />
+          ))}
         </div>
       </div>
 
-      {/* right side - content */}
-      <div className="flex-1 p-6 space-y-4">
-        <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold">Serenity Elder Care</h2>
-          <FaBookmark className="text-gray-400 hover:text-black cursor-pointer" />
-        </div>
-        <p className="text-gray-500">Pune, Maharashtra</p>
+      {/* Right Section (Details) */}
+      <div className="w-2/3 p-5 flex flex-col justify-between">
+        <div>
+          <h2 className="text-lg font-semibold">Serenity Elder Care</h2>
+          <p className="text-sm text-gray-500">Pune, Maharashtra</p>
 
-        {/* rating */}
-        <div className="flex items-center space-x-2">
-          <FaStar className="text-yellow-400" />
-          <p className="text-gray-700">4.0</p>
-          <p className="text-gray-500">(320 reviews)</p>
-        </div>
-
-        {/* icons */}
-        <div className="flex space-x-4 text-gray-600">
-          <RxCardStackMinus className="text-xl" />
-          <LuCctv className="text-xl" />
-          <FaStethoscope className="text-xl" />
-          <PiForkKnifeBold className="text-xl" />
-        </div>
-
-        {/* Price and the buttons */}
-        <div className="flex justify-between items-center">
-          <div className="flex items-center text-2xl font-bold">
-            <span className="text-lg"><FaRupeeSign /></span>
-            <span>3500</span>
-            <p className="text-gray-500 text-sm ml-1">/ night</p>
+          {/* Rating Section */}
+          <div className="flex items-center gap-1 mt-2 text-yellow-500">
+            <Star size={16} />
+            <span className="text-sm font-medium">4.0</span>
+            <span className="text-sm text-gray-500">(320 reviews)</span>
           </div>
-          <div className="flex space-x-2">
-            <button className="border border-gray-300 px-4 py-2 rounded-3xl hover:bg-gray-100">
+          {/* Amenities Section with Tooltip Effect */}
+          <div className="flex gap-2 mt-3">
+            {[
+              { icon: Tv, label: "Entertainment" },
+              { icon: Stethoscope, label: "Medical" },
+              { icon: Utensils, label: "Dining" },
+            ].map(({ icon: Icon, label }, index) => (
+              <div key={index} className="relative group">
+                <div className="flex items-center justify-center bg-gray-100 p-2 rounded-md w-9 h-9">
+                  <Icon className="text-gray-700 w-5 h-5" />
+                </div>
+                <span className="absolute bottom-[-22px] left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 text-xs text-gray-700 font-medium">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Price & Button Section */}
+        <div className="flex justify-between items-center mt-3">
+          <span className="text-xl font-bold">
+            ₹3500 <span className="text-sm font-normal">/ night</span>
+          </span>
+          <div className="flex gap-3">
+            <Button variant="outline" className="rounded-full px-4 py-2 border-black text-black">
               View Details
-            </button>
-            <button className="bg-black text-white px-4 py-2 rounded-3xl hover:bg-gray-800">
+            </Button>
+            <Button variant="default" className="rounded-full px-4 py-2 bg-black text-white">
               Book Now
-            </button>
+            </Button>
           </div>
         </div>
       </div>
-
-    </div>
+    </Card>
   );
-};
-
-export default ListingCard;
+}
