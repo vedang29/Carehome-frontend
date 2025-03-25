@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { IoLogoBuffer } from "react-icons/io5";
+import { Bell, Bookmark } from "lucide-react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import { LogIn } from "lucide-react";
-
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -26,7 +26,8 @@ const Navbar = () => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className={`w-full bg-white border-b-1 z-50 transition-all ${isSticky ? "fixed top-0 left-0 shadow-md" : "relative"}`}
     >
-      <div className="flex justify-between items-center max-w-7xl mx-auto px-5 py-4">
+      {/* Desktop Navbar (Visible on md and above) */}
+      <div className="hidden md:flex justify-between items-center max-w-7xl mx-auto px-5 py-4">
         {/* Logo Section */}
         <div className="flex items-center gap-2">
           <IoLogoBuffer size={28} />
@@ -45,7 +46,23 @@ const Navbar = () => {
             </Button>
           </li>
         </ul>
+      </div>
 
+      {/* Mobile Navbar (Visible on small screens) */}
+      <div className="flex md:hidden w-full bg-white border-b px-10 py-4 justify-between items-center">
+        {/* Logo Section */}
+        <div className="flex items-center gap-2">
+          <div className="bg-gray-800 rounded-lg p-2">
+            <IoLogoBuffer size={20} className="text-white" />
+          </div>
+          <span className="text-lg font-bold">Logo</span>
+        </div>
+
+        {/* Icons Section */}
+        <div className="flex items-center gap-4">
+          <Bell size={22} className="text-black" />
+          <Bookmark size={22} className="text-black" />
+        </div>
       </div>
     </motion.div>
   );

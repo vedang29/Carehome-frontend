@@ -7,26 +7,44 @@ import SideBar from "../../components/custom/listing/SideBar";
 export default function Home() {
   return (
     <>
-      <div className="max-w-7xl min-h-screen mx-auto">
+      <div>
+        {/* Navbar */}
+        <div className="md:hidden">
         <Navbar />
-        <div>
-        <div className="text-3xl font-semibold mt-10">Hello Vedang!</div>
-        <SearchBar/>
-      </div>
-        <div className="py-8 space-y-6 flex flex-row space-x-5 justify-center align-middle">
+ 
+        </div>
+        <div className="md:hidden font-bold text-3xl mt-10">Hello Vedang,</div>
 
-          <div className="">
+        {/* Sticky Search Bar */}
+        <div className="sticky top-0 z-50 bg-white py-4 shadow-md">
+          <div className="max-w-7xl mx-auto">
+            <SearchBar />
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex flex-row space-x-5 justify-center py-8 max-w-7xl min-h-screen mx-auto">
+
+          {/* Listing Cards - Takes full width without its own scroll */}
+          <div className="flex-1">
+            <ListingCard />
+            <ListingCard />
+            <ListingCard />
+            <ListingCard />
             <ListingCard />
             <ListingCard />
             <ListingCard />
           </div>
 
-          <div className="sticky top-0 h-fit">
+          {/* Sticky Sidebar */}
+          <div className="sticky top-20 h-fit">
             <SideBar />
           </div>
 
         </div>
       </div>
+
+      {/* Footer */}
       <Footer />
     </>
   );

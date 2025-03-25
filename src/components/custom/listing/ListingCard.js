@@ -1,19 +1,33 @@
+"use client"; // Required for using useRouter
+
+import { useRouter } from "next/navigation"; // ✅ Correct import for Next.js App Router
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star, Bookmark, Tv, Utensils, Stethoscope } from "lucide-react";
 
-export default function ListingCard() {
+export default function ListingCard({ id }) {
+  const router = useRouter();
+
+  const handleCardClick = () => {
+    router.push(`/care-home/${id}`);
+  };
+
   return (
-    <Card className="rounded-2xl shadow-md flex flex-row w-full relative bg-white p-0 my-5">
+    <Card
+      className="rounded-2xl shadow-md flex flex-row w-full relative bg-white p-0 my-5 cursor-pointer hover:scale-102 transition-transform"
+      onClick={handleCardClick}
+    >
       {/* Bookmark Icon */}
-      <button className="absolute top-4 right-4 p-2 rounded-full">
+      <button
+        className="absolute top-4 right-4 p-2 rounded-full z-10"
+        onClick={(e) => e.stopPropagation()} // Prevents navigation when clicking the bookmark
+      >
         <Bookmark className="text-black w-5 h-5" />
       </button>
 
       {/* Left Section (Images) */}
       <div className="flex w-3/6 relative">
-        {/* Main Large Image */}
         <div className="relative">
           <Image
             src="/assets/Room2.png"
@@ -51,7 +65,8 @@ export default function ListingCard() {
             <span className="text-sm font-medium">4.0</span>
             <span className="text-sm text-gray-500">(320 reviews)</span>
           </div>
-          {/* Amenities Section with Tooltip Effect */}
+
+          {/* Amenities Section */}
           <div className="flex gap-2 mt-3">
             {[
               { icon: Tv, label: "Entertainment" },
@@ -76,10 +91,21 @@ export default function ListingCard() {
             ₹3500 <span className="text-sm font-normal">/ night</span>
           </span>
           <div className="flex gap-3">
-            <Button variant="outline" className="rounded-full px-4 py-2 border-black text-black">
+            <Button
+              variant="outline"
+              className="rounded-full px-4 py-2 border-black text-black"
+              onClick={(e) => {
+                e.stopPropagation(); // Prevents card click from triggering navigation
+                router.push(`/search/${id}`);
+              }}
+            >
               View Details
             </Button>
-            <Button variant="default" className="rounded-full px-4 py-2 bg-black text-white">
+            <Button
+              variant="default"
+              className="rounded-full px-4 py-2 bg-black text-white"
+              onClick={(e) => e.stopPropagation()} // Prevents navigation on Book Now
+            >
               Book Now
             </Button>
           </div>

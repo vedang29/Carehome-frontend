@@ -8,13 +8,18 @@ import SearchBar from "@/components/custom/SearchBar"
 const page = () => {
     return (
         <>
-            <div className="max-w-7xl mx-auto">
-                <Navbar />
-                <SearchBar />
+            <div className="sticky top-0 z-50 bg-white py-4 shadow-md">
+                <div className="max-w-7xl mx-auto">
+                    <SearchBar />
+                </div>
             </div>
             <Header />
-            <CarehomeDetails/>
-           
+            <div className="max-w-7xl min-h-screen mx-auto">
+          
+                <CarehomeDetails />
+            </div>
+
+
             <Footer />
         </>
     )
