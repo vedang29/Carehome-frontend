@@ -14,9 +14,12 @@ export default function Home() {
         <div className="md:block sm:hidden">
           <Navbar />
         </div>
-        <div className="md:block sm:hidden font-bold text-3xl mt-10 mx-4 sm:mx-6 md:mx-10">
-          Hello Vedang,
+        <div className="max-w-7xl mx-auto">
+          <div className=" mx-5 md:block sm:hidden font-bold text-3xl mt-10 sm:mx-6 md:mx-10">
+            Hello Vedang,
+          </div>
         </div>
+
 
         {/* Sticky Search Bar */}
         <div className="sticky top-0 z-50 bg-white">
@@ -25,7 +28,7 @@ export default function Home() {
           </div>
         </div>
         <div className="mx-4 sm:mx-6 md:mx-10 mt-5">
-          <ToggleButtons/>
+          <ToggleButtons />
         </div>
 
         {/* Main Content */}
@@ -42,7 +45,7 @@ export default function Home() {
           </div>
 
           <div className="md:hidden w-full">
-            <CareHomeList/>
+            <CareHomeList />
           </div>
 
           {/* Sticky Sidebar */}
