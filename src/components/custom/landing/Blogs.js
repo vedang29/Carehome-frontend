@@ -28,16 +28,24 @@ const blogs = [
 
 const Blogs = () => {
   return (
-    <section className="max-w-7xl mx-auto text-center py-20 ">
+    <section className="max-w-7xl mx-auto text-center py-20 px-6 lg:px-10 xl:px-0">
       <h2 className="text-3xl font-semibold text-gray-800">Latest Insights in Health Care</h2>
       <p className="text-gray-600 mt-2 max-w-xl mx-auto">
         Stay informed with expert tips, trends, and heartwarming stories to help you make the best decisions for your loved ones.
       </p>
-      <div className="flex flex-wrap justify-evenly gap-6 mt-10">
+
+      {/* Responsive Grid Layout */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 justify-items-center">
         {blogs.map((blog) => (
-          <Card key={blog.id} className="p-0 w-80 shadow-lg transition-transform hover:scale-105">
+          <Card key={blog.id} className="p-0 w-full max-w-xs shadow-lg transition-transform hover:scale-105">
             <CardHeader className="p-0">
-              <Image src={blog.image} alt={blog.title} width={400} height={250} className="w-full h-52 object-cover rounded-t-lg" />
+              <Image
+                src={blog.image}
+                alt={blog.title}
+                width={400}
+                height={250}
+                className="w-full h-52 object-cover rounded-t-lg"
+              />
             </CardHeader>
             <CardContent className="p-4 text-left">
               <CardTitle className="text-lg">{blog.title}</CardTitle>

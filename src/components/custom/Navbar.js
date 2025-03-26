@@ -1,70 +1,73 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { IoLogoBuffer } from "react-icons/io5";
-import { Bell, Bookmark } from "lucide-react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { IoLogoBuffer } from "react-icons/io5";
+import { Bell, Bookmark, Menu, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { LogIn } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Navbar = () => {
-  const [isSticky, setIsSticky] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsSticky(window.scrollY > 300);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.div
-      initial={{ y: 0, opacity: 1 }}
-      animate={{ y: isSticky ? 0 : 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-      className={`w-full bg-white border-b-1 z-50 transition-all ${isSticky ? "fixed top-0 left-0 shadow-md" : "relative"}`}
+    <motion.nav
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="w-full bg-white border-b fixed top-0 left-0 z-50"
     >
-      {/* Desktop Navbar (Visible on md and above) */}
-      <div className="hidden sm:flex justify-between items-center max-w-7xl mx-auto px-5 py-4">
+      <div className="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
         {/* Logo Section */}
         <div className="flex items-center gap-2">
           <IoLogoBuffer size={28} />
           <span className="text-lg font-bold">Logo</span>
         </div>
 
-        {/* Navigation Links */}
-        <ul className="flex gap-8">
-          <li><Button variant="link">Home</Button></li>
-          <li><Button variant="link">Services</Button></li>
-          <li><Button variant="link">About Us</Button></li>
-          <li><Button variant="link">Pricing & Plans</Button></li>
-          <li>
-            <Button>
-              <LogIn /> Sign in
-            </Button>
-          </li>
-        </ul>
-      </div>
-
-      {/* Mobile Navbar (Visible on small screens) */}
-      <div className="flex sm:hidden w-full bg-white border-b px-10 py-4 justify-between items-center">
-        {/* Logo Section */}
-        <div className="flex items-center gap-2">
-          <div className="bg-gray-800 rounded-lg p-2">
-            <IoLogoBuffer size={20} className="text-white" />
-          </div>
-          <span className="text-lg font-bold">Logo</span>
+        {/* Desktop Links (Hidden below xl) */}
+        <div className="hidden lg:flex gap-6">
+          <Button variant="link">Home</Button>
+          <Button variant="link">Services</Button>
+          <Button variant="link">About Us</Button>
+          <Button variant="link">Pricing & Plans</Button>
+          <Button>
+            <LogIn className="mr-2" size={16} /> Sign in
+          </Button>
         </div>
 
-        {/* Icons Section */}
-        <div className="flex items-center gap-4">
-          <Bell size={22} className="text-black" />
-          <Bookmark size={22} className="text-black" />
+        {/* Mobile Icons & Menu (Visible below xl) */}
+        <div className="lg:hidden flex items-center gap-4">
+          {/* <Bell size={22} className="text-black" />
+          <Bookmark size={22} className="text-black" /> */}
+
+          {/* Mobile Menu Button */}
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" onClick={() => setIsOpen(true)}>
+                <Menu size={24} />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-64">
+              <div className="flex justify-between items-center p-4">
+                <span className="text-lg font-bold">Menu</span>
+                {/* <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+                  <X size={24} />
+                </Button> */}
+              </div>
+              <div className="flex flex-col gap-4 mt-4 px-4">
+                <Button variant="ghost" className="w-full text-left">Home</Button>
+                <Button variant="ghost" className="w-full text-left">Services</Button>
+                <Button variant="ghost" className="w-full text-left">About Us</Button>
+                <Button variant="ghost" className="w-full text-left">Pricing & Plans</Button>
+                <Button variant="default" className="w-full">
+                  <LogIn className="mr-2" size={16} /> Sign in
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
-    </motion.div>
+    </motion.nav>
   );
 };
 
