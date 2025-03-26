@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Minus, Plus, Settings } from "lucide-react";
-import { BedDouble } from "lucide-react"
+import { Minus, Plus } from "lucide-react";
+import { BedDouble } from "lucide-react";
 
 export default function GuestSelection() {
   const [rooms, setRooms] = useState([{ id: 1, guests: 1 }]);
@@ -37,10 +37,12 @@ export default function GuestSelection() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" className="bg-white border rounded-full shadow px-4 py-6 flex items-center gap-2 text-gray-700">
-        <BedDouble className="w-4 h-4" />
+        <Button
+          variant="outline"
+          className="bg-white rounded-full px-4 py-6 flex items-center gap-2 text-gray-700 lg:shadow-sm lg:border border-b md:shadow-none md:border-none"
+        >
+          <BedDouble className="w-4 h-4" />
           {rooms.length} {rooms.length > 1 ? "Rooms" : "Room"}, {rooms.reduce((acc, room) => acc + room.guests, 0)} Guests
-         
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-64 p-3">
@@ -52,11 +54,21 @@ export default function GuestSelection() {
           <div key={room.id} className="flex justify-between items-center py-2 border-b">
             <span>Room {room.id}</span>
             <div className="flex items-center gap-2">
-              <Button variant="outline" size="icon" onClick={() => updateGuests(room.id, -1)} disabled={room.guests === 1}>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => updateGuests(room.id, -1)}
+                disabled={room.guests === 1}
+              >
                 <Minus className="w-4 h-4" />
               </Button>
               <span className="w-6 text-center">{room.guests}</span>
-              <Button variant="outline" size="icon" onClick={() => updateGuests(room.id, 1)} disabled={room.guests === 3}>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => updateGuests(room.id, 1)}
+                disabled={room.guests === 3}
+              >
                 <Plus className="w-4 h-4" />
               </Button>
             </div>

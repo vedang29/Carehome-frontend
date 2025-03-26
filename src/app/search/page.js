@@ -11,26 +11,27 @@ export default function Home() {
     <>
       <div>
         {/* Navbar */}
-        <div className="sm:hidden">
+        <div className="md:block sm:hidden">
           <Navbar />
-
         </div>
-        <div className="sm:hidden font-bold text-3xl mt-10 mx-10">Hello Vedang,</div>
+        <div className="md:block sm:hidden font-bold text-3xl mt-10 mx-4 sm:mx-6 md:mx-10">
+          Hello Vedang,
+        </div>
 
         {/* Sticky Search Bar */}
         <div className="sticky top-0 z-50 bg-white">
-          <div className="max-w-7xl mx-auto flex justify-center mt-5">
+          <div className="max-w-7xl mx-auto flex justify-center mt-5 px-4 sm:px-6 md:px-8">
             <SearchBar />
           </div>
         </div>
-        <div className="mx-10 mt-5">
-            <ToggleButtons/>
+        <div className="mx-4 sm:mx-6 md:mx-10 mt-5">
+          <ToggleButtons/>
         </div>
-        {/* Main Content */}
-        <div className="flex flex-row space-x-5 justify-center py-8 max-w-7xl min-h-screen mx-auto">
 
-          {/* Listing Cards - Takes full width without its own scroll */}
-          <div className="hidden sm:block flex-1">
+        {/* Main Content */}
+        <div className="flex flex-col md:flex-row md:space-x-5 justify-center py-8 max-w-7xl min-h-screen mx-auto px-4 sm:px-6 md:px-8">
+          {/* Listing Cards */}
+          <div className="hidden md:block flex-1">
             <ListingCard />
             <ListingCard />
             <ListingCard />
@@ -40,18 +41,14 @@ export default function Home() {
             <ListingCard />
           </div>
 
-          <div className="sm:hidden ">
+          <div className="md:hidden w-full">
             <CareHomeList/>
           </div>
 
           {/* Sticky Sidebar */}
-          <div>
-            
-          </div>
-          <div className="sticky top-20 h-fit">
+          <div className="md:sticky md:top-20 h-fit mt-8 md:mt-0">
             <SideBar />
           </div>
-
         </div>
       </div>
 

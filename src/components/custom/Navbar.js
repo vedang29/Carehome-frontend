@@ -1,21 +1,28 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { IoLogoBuffer } from "react-icons/io5";
-import { Bell, Bookmark, Menu, LogIn } from "lucide-react";
+import { Menu, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 500);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className="w-full bg-white border-b fixed top-0 left-0 z-50"
+    <nav
+      className={`w-full bg-white/80 backdrop-blur-md border-b transition-all duration-300 ease-in-out ${
+        isSticky ? "fixed top-0 left-0 z-50 shadow-md" : "relative"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
         {/* Logo Section */}
@@ -37,22 +44,15 @@ const Navbar = () => {
 
         {/* Mobile Icons & Menu (Visible below xl) */}
         <div className="lg:hidden flex items-center gap-4">
-          {/* <Bell size={22} className="text-black" />
-          <Bookmark size={22} className="text-black" /> */}
-
-          {/* Mobile Menu Button */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" onClick={() => setIsOpen(true)}>
+              <Button variant="ghost" size="icon">
                 <Menu size={24} />
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-64">
               <div className="flex justify-between items-center p-4">
                 <span className="text-lg font-bold">Menu</span>
-                {/* <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
-                  <X size={24} />
-                </Button> */}
               </div>
               <div className="flex flex-col gap-4 mt-4 px-4">
                 <Button variant="ghost" className="w-full text-left">Home</Button>
@@ -67,7 +67,7 @@ const Navbar = () => {
           </Sheet>
         </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 
