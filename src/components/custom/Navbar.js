@@ -27,7 +27,7 @@ const Navbar = () => {
       className={`w-full bg-white border-b-1 z-50 transition-all ${isSticky ? "fixed top-0 left-0 shadow-md" : "relative"}`}
     >
       {/* Desktop Navbar (Visible on md and above) */}
-      <div className="hidden md:flex justify-between items-center max-w-7xl mx-auto px-5 py-4">
+      <div className="hidden sm:flex justify-between items-center max-w-7xl mx-auto px-5 py-4">
         {/* Logo Section */}
         <div className="flex items-center gap-2">
           <IoLogoBuffer size={28} />
@@ -49,7 +49,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Navbar (Visible on small screens) */}
-      <div className="flex md:hidden w-full bg-white border-b px-10 py-4 justify-between items-center">
+      <div className="flex sm:hidden w-full bg-white border-b px-10 py-4 justify-between items-center">
         {/* Logo Section */}
         <div className="flex items-center gap-2">
           <div className="bg-gray-800 rounded-lg p-2">
